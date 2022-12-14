@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import tanguy_paquet.insset.tp_2.R
 import tanguy_paquet.insset.tp_2.model.MyObjectForRecyclerView
 import tanguy_paquet.insset.tp_2.databinding.ItemCustomRecyclerBinding
 import tanguy_paquet.insset.tp_2.databinding.ItemCustomRecyclerHeaderBinding
@@ -70,8 +72,12 @@ class AndroidVersionViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(objectDataSample: ObjectDataSample) {
-        binding.itemRecyclerViewPhoneName.text = objectDataSample.phoneName
+        binding.itemRecyclerViewPhoneName.text = objectDataSample.name
         binding.itemRecyclerViewPrice.text = "${objectDataSample.price} €"
+        Glide.with(itemView.context)
+            .load(objectDataSample.image)
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(binding.itemRecyclerViewImage)
     }
 }
 
