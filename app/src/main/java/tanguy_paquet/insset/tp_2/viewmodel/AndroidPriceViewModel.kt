@@ -7,24 +7,25 @@ import tanguy_paquet.insset.tp_2.model.MyObjectForRecyclerView
 import tanguy_paquet.insset.tp_2.model.ObjectDataHeaderSample
 import tanguy_paquet.insset.tp_2.model.ObjectDataSample
 import tanguy_paquet.insset.tp_2.repository.AndroidPriceRepository
+import tanguy_paquet.insset.tp_2.repository.profileRepository
 
-class AndroidPriceViewModel:ViewModel() {
-    private val androidVersionRepository: AndroidPriceRepository by lazy { AndroidPriceRepository() }
+class ProfileViewModel:ViewModel() {
+    private val ProfileRepository: ProfileRepository by lazy { ProfileRepository() }
     val androidVersionList: LiveData<List<MyObjectForRecyclerView>> = androidVersionRepository.selectAllAndroidVersion().map { list ->
         list.toMyObjectForRecyclerView()
     }
 
-    fun insertAndroidVersion(name: String, price: Int, url: String) {
+    fun insertOsuProfile(name: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            androidVersionRepository.insertAndroidVersion(
-                ObjectDataSample(name, price, url)
+            ProfileRepository.insertAndroidVersion(
+                ProfileRepository.insertOsuProfile
             )
         }
     }
 
     fun deleteAllAndroidVersion() {
         viewModelScope.launch(Dispatchers.IO) {
-            androidVersionRepository.deleteAllAndroidVersion()
+            ProfileRepository.deleteAllAndroidVersion()
         }
     }
 }

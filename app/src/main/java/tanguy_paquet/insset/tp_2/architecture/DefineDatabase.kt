@@ -14,7 +14,7 @@ class DefineDatabase:Application() {
         Room.databaseBuilder(
             applicationContext,
             CustomRoomDatabase::class.java,
-            "MyDatabaseName"
+            "ProfileBase"
         ).fallbackToDestructiveMigration().build()
     }
 
