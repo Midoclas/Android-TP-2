@@ -35,11 +35,18 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/itemRecyclerViewImage"
-        app:layout_constraintLeft_toRightOf="@id/itemRecyclerViewImage"
+        app:layout_constraintLeft_toLeftOf="@id/itemRecyclerViewPhoneName"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/itemRecyclerViewPhoneName"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="@tools:sample/full_names" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="itemRecyclerViewImage" />
 
     <TextView
         android:id="@+id/itemRecyclerViewSS"
@@ -49,13 +56,14 @@
         android:background="@drawable/custom_background_item"
         android:drawableLeft="@drawable/ss"
         android:padding="10dp"
+        android:textSize="25dp"
         android:textAlignment="center"
 
         app:layout_constraintBottom_toTopOf="@+id/itemRecyclerViewSSH"
         app:layout_constraintEnd_toStartOf="@+id/itemRecyclerViewS"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrierScore"
         tools:text="156" />
 
     <TextView
@@ -66,6 +74,7 @@
         android:background="@drawable/custom_background_item"
         android:drawableLeft="@drawable/ssh"
         android:padding="10dp"
+        android:textSize="25dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/itemRecyclerViewSH"
@@ -82,12 +91,12 @@
         android:background="@drawable/custom_background_item"
         android:drawableLeft="@drawable/s"
         android:padding="10dp"
+        android:textSize="25dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/itemRecyclerViewSH"
-        app:layout_constraintEnd_toStartOf="@+id/itemRecyclerViewImage"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/itemRecyclerViewSS"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/barrierA"
+        app:layout_constraintLeft_toRightOf="@+id/itemRecyclerViewSS"
+        app:layout_constraintTop_toTopOf="@+id/barrierScore"
         tools:text="1569" />
 
     <TextView
@@ -98,21 +107,25 @@
         android:background="@drawable/custom_background_item"
         android:drawableLeft="@drawable/sh"
         android:padding="10dp"
+        android:textSize="25dp"
+
         android:textAlignment="center"
 
-        app:layout_constraintBottom_toTopOf="@+id/itemRecyclerViewA"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/itemRecyclerViewSSH"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/barrierA"
         app:layout_constraintTop_toBottomOf="@+id/itemRecyclerViewS"
+        app:layout_constraintLeft_toRightOf="@+id/itemRecyclerViewSSH"
         tools:text="1569" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="right"
-        app:constraint_referenced_ids="itemRecyclerViewS, itemRecyclerViewSH" />
+        app:barrierDirection="left"
+        android:padding="10dp"
+        app:constraint_referenced_ids="itemRecyclerViewA" />
 
     <TextView
         android:id="@+id/itemRecyclerViewA"
@@ -122,13 +135,12 @@
         android:background="@drawable/custom_background_item"
         android:drawableLeft="@drawable/a"
         android:padding="10dp"
+        android:textSize="25dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
 
-
-        app:layout_constraintLeft_toRightOf="@id/barrierA"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemRecyclerViewImage"
+        app:layout_constraintTop_toBottomOf="@id/barrierScore"
 
         tools:text="2500" />
 
