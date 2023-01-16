@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import tanguy_paquet.insset.tp_2.endpoint.OsuEndpoint
 
 object RetrofitBuilder {
-    private val BASE_URL:String = "https://osu.ppy.sh/api/"
+    private const val BASE_URL:String = "https://osu.ppy.sh/api/"
     private val gson : Gson by lazy {
         GsonBuilder().setLenient().create()
     }

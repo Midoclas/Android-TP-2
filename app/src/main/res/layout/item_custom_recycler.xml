@@ -3,30 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/custom_background"
-    android:layout_height="72dp">
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_background">
 
     <ImageView
         android:id="@+id/itemRecyclerViewImage"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        app:circularflow_radiusInDP="50"
+        app:layout_constraintBottom_toTopOf="@id/itemRecyclerViewSS"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/itemRecyclerViewPhoneName"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/itemRecyclerViewPhoneName"
-        android:textSize="20dp"
-        android:textStyle="bold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/itemRecyclerViewPrice"
         app:layout_constraintLeft_toRightOf="@id/itemRecyclerViewImage"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/itemRecyclerViewPrice"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="@tools:sample/cities" />
 
@@ -34,11 +34,102 @@
         android:id="@+id/itemRecyclerViewPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/itemRecyclerViewImage"
         app:layout_constraintLeft_toRightOf="@id/itemRecyclerViewImage"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/itemRecyclerViewPhoneName"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="@tools:sample/full_names" />
+
+    <TextView
+        android:id="@+id/itemRecyclerViewSS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_background_item"
+        android:drawableLeft="@drawable/ss"
+        android:padding="10dp"
+        android:textAlignment="center"
+
+        app:layout_constraintBottom_toTopOf="@+id/itemRecyclerViewSSH"
+        app:layout_constraintEnd_toStartOf="@+id/itemRecyclerViewS"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="156" />
+
+    <TextView
+        android:id="@+id/itemRecyclerViewSSH"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_background_item"
+        android:drawableLeft="@drawable/ssh"
+        android:padding="10dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/itemRecyclerViewSH"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemRecyclerViewSS"
+        tools:text="51" />
+
+    <TextView
+        android:id="@+id/itemRecyclerViewS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_background_item"
+        android:drawableLeft="@drawable/s"
+        android:padding="10dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/itemRecyclerViewSH"
+        app:layout_constraintEnd_toStartOf="@+id/itemRecyclerViewImage"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/itemRecyclerViewSS"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1569" />
+
+    <TextView
+        android:id="@+id/itemRecyclerViewSH"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_background_item"
+        android:drawableLeft="@drawable/sh"
+        android:padding="10dp"
+        android:textAlignment="center"
+
+        app:layout_constraintBottom_toTopOf="@+id/itemRecyclerViewA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/itemRecyclerViewSSH"
+        app:layout_constraintTop_toBottomOf="@+id/itemRecyclerViewS"
+        tools:text="1569" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="itemRecyclerViewS, itemRecyclerViewSH" />
+
+    <TextView
+        android:id="@+id/itemRecyclerViewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_background_item"
+        android:drawableLeft="@drawable/a"
+        android:padding="10dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+
+        app:layout_constraintLeft_toRightOf="@id/barrierA"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemRecyclerViewImage"
+
+        tools:text="2500" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

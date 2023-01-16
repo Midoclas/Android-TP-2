@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background_item">@android:color/black</color>
+    <color name="background_container">@android:color/black</color>
     <color name="border_item">@android:color/white</color>
+    <color name="background_item">#FF1A1A1A</color>
 </resources>
