@@ -1,7 +1,6 @@
 package tanguy_paquet.insset.tp_2.view
 
 import android.os.Bundle
-import android.provider.ContactsContract.Profile
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -9,14 +8,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import tanguy_paquet.insset.tp_2.databinding.ActivityRecyclerViewBinding
 import tanguy_paquet.insset.tp_2.model.MyObjectForRecyclerView
+import tanguy_paquet.insset.tp_2.viewmodel.BestViewModel
 import tanguy_paquet.insset.tp_2.viewmodel.ProfileViewModel
-import kotlin.random.Random
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter: AndroidVersionAdapter
     private lateinit var binding: ActivityRecyclerViewBinding
-    private lateinit var viewModel: ProfileViewModel
+    private lateinit var viewModel: BestViewModel
+
 
     private val profileListObserver = Observer<List<MyObjectForRecyclerView>> {
         adapter.submitList(it)
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
+        viewModel = ViewModelProvider(this)[BestViewModel::class.java]
 
         // Create the instance of adapter
         adapter = AndroidVersionAdapter()
@@ -38,28 +39,28 @@ class MainActivity : AppCompatActivity() {
         // We set the adapter to recycler view
         binding.recyclerView.adapter = adapter
 
-        binding.addItemButton.setOnClickListener { addRandomAndroidVersion() }
-        binding.deleteAllItemButton.setOnClickListener { deleteAndroidVersion() }
+        binding.addItemButton.setOnClickListener { addBestMaps() }
+        binding.deleteAllItemButton.setOnClickListener { deleteBestMaps() }
 
     }
 
-    private fun addRandomAndroidVersion() {
-        viewModel.insertOsuProfileByUserId("4717982")
+    private fun addBestMaps() {
+        viewModel.insertOsuBest("4717982")
     }
 
-    private fun deleteAndroidVersion() {
-        viewModel.deleteAllAndroidVersion()
+    private fun deleteBestMaps() {
+        viewModel.deleteAllBest()
     }
 
 
     override fun onStart() {
         super.onStart()
-        viewModel.mProfileLiveData.observe(this, profileListObserver)
+        viewModel.mBestLiveData.observe(this, profileListObserver)
     }
 
 
     override fun onStop() {
         super.onStop()
-        viewModel.mProfileLiveData.removeObserver(profileListObserver)
+        viewModel.mBestLiveData.removeObserver(profileListObserver)
     }
 }

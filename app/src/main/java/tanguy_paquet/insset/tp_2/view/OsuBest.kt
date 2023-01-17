@@ -10,8 +10,8 @@ import tanguy_paquet.insset.tp_2.R
 import tanguy_paquet.insset.tp_2.databinding.ItemCustomRecyclerBinding
 import tanguy_paquet.insset.tp_2.databinding.ItemCustomRecyclerHeaderBinding
 import tanguy_paquet.insset.tp_2.model.*
-import tanguy_paquet.insset.tp_2.viewmodel.ProfileViewModel
 import java.lang.RuntimeException
+import java.time.format.DateTimeFormatter
 
 private val diffItemUtils = object : DiffUtil.ItemCallback<MyObjectForRecyclerView>() {
 
@@ -31,7 +31,7 @@ class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         when (viewType) {
             MyItemType.ROW.type -> {
-                AndroidVersionViewHolder(
+                OsuProfileViewHolder(
                     ItemCustomRecyclerBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
@@ -53,35 +53,51 @@ class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
         when (holder.itemViewType) {
-            MyItemType.ROW.type -> (holder as AndroidVersionViewHolder).bind(getItem(position) as ProfileUi)
+            MyItemType.ROW.type -> (holder as OsuProfileViewHolder).bind(getItem(position) as BestUi)
             MyItemType.HEADER.type -> (holder as AndroidVersionHeaderViewHolder).bind(getItem(position) as HeaderUi)
             else -> throw RuntimeException("Wrong view type received ${holder.itemView}")
         }
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
-            is ProfileUi -> MyItemType.ROW.type
+            is BestUi -> MyItemType.ROW.type
             is HeaderUi -> MyItemType.HEADER.type
+            is ProfileUi -> MyItemType.ROW.type
         }
     }
 }
 
-class AndroidVersionViewHolder(
+class OsuProfileViewHolder(
     private val binding: ItemCustomRecyclerBinding
 ) : RecyclerView.ViewHolder(binding.root) {
+    var formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
 
-    fun bind(ProfileUi: ProfileUi) {
-        binding.itemRecyclerViewPhoneName.text = ProfileUi.username
-        binding.itemRecyclerViewPrice.text = ProfileUi.user_id
-        binding.itemRecyclerViewSS.text = ProfileUi.count_rank_ss
-        binding.itemRecyclerViewS.text = ProfileUi.count_rank_s
-        binding.itemRecyclerViewSSH.text = ProfileUi.count_rank_ssh
-        binding.itemRecyclerViewSH.text = ProfileUi.count_rank_sh
-        binding.itemRecyclerViewA.text = ProfileUi.count_rank_a
+    fun bind(BestUi: BestUi) {
         Glide.with(itemView.context)
+            .load("https://assets.ppy.sh/beatmaps/"+BestUi.beatmapset_id+"/covers/cover@2x.jpg")
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(binding.beatmapImage)
+        binding.score.text = BestUi.beatmapset_id
+        binding.maxcombo.text = BestUi.maxcombo
+        binding.count50.text = BestUi.count50
+        binding.count100.text = BestUi.count100
+        binding.count300.text = BestUi.count300
+        binding.countmiss.text = BestUi.countmiss
+        /*if (BestUi.perfect == "1") {
+            Glide.with(itemView.context)
+            .load("https://b.ppy.sh/thumb/"+BestUi.beatmap_id+"l.jpg")
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(binding.perfectImage)
+        }
+
+        binding.date.text = BestUi.date.format(formatter)
+        binding.rank.text = BestUi.rank
+        binding.pp.text = BestUi.pp*/
+        /*Glide.with(itemView.context)
             .load("https://a.ppy.sh/4717982")
             .placeholder(R.drawable.ic_launcher_background)
-            .into(binding.itemRecyclerViewImage)
+            .into(binding.itemRecyclerViewImage)*/
+            
     }
 }
 

@@ -1,6 +1,5 @@
 package tanguy_paquet.insset.tp_2.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import tanguy_paquet.insset.tp_2.architecture.DefineDatabase
 import tanguy_paquet.insset.tp_2.architecture.RetrofitBuilder
@@ -9,28 +8,27 @@ import tanguy_paquet.insset.tp_2.model.OsuProfileRetrofit
 
 class ProfileRepository {
 
-    private val mOsuDao =
-        DefineDatabase.instance.mApplicationDatabase.mOsuDao()
+    private val mOsuProfileDao =
+        DefineDatabase.instance.mApplicationDatabase.mOsuProfileDao()
 
     fun selectAllOsuProfile(): LiveData<List<OsuProfile>> {
-        return mOsuDao.selectAll()
+        return mOsuProfileDao.selectAll()
     }
 
     suspend fun fetch() {
-        val test = RetrofitBuilder.call().getOsuProfileByUserId("4717982")
-        Log.d("username", "fetch() called $test")
+        RetrofitBuilder.call().getOsuProfile("4717982")
     }
 
     suspend fun insertOsuProfileByUsername(username: String) {
-        mOsuDao.insert(RetrofitBuilder.call().getOsuProfileByUsername(username).setProfile())
+        mOsuProfileDao.insert(RetrofitBuilder.call().getOsuProfile(username).setProfile())
     }
     suspend fun insertOsuProfileByUserId(user_id: String) {
-        mOsuDao.insert(RetrofitBuilder.call().getOsuProfileByUserId(user_id).setProfile())
+        mOsuProfileDao.insert(RetrofitBuilder.call().getOsuProfile(user_id).setProfile())
     }
 
 
     fun deleteAllOsuProfile() {
-        mOsuDao.deleteAll()
+        mOsuProfileDao.deleteAll()
     }
 }
 
