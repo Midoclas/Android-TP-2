@@ -25,7 +25,7 @@ data class ProfileUi(
     val country: String,
     val pp_rank: String,
     val pp_country_rank: String
-) : MyObjectForRecyclerView(label = user_id)
+)
 
 data class BestUi(
     val beatmap_id: String,

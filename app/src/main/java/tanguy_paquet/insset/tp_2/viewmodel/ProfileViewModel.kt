@@ -1,19 +1,17 @@
 package tanguy_paquet.insset.tp_2.viewmodel
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import tanguy_paquet.insset.tp_2.model.HeaderUi
-import tanguy_paquet.insset.tp_2.model.MyObjectForRecyclerView
-import tanguy_paquet.insset.tp_2.model.OsuProfile
-import tanguy_paquet.insset.tp_2.model.ProfileUi
+import tanguy_paquet.insset.tp_2.model.*
 import tanguy_paquet.insset.tp_2.repository.ProfileRepository
 
 class ProfileViewModel:ViewModel() {
     private val mProfileRepository: ProfileRepository by lazy { ProfileRepository() }
 
     var mProfileLiveData: LiveData<List<ProfileUi>> =
-    mProfileRepository.selectAllOsuProfile().map {
+    mProfileRepository.selectOsuProfile().map {
         it.toUi()
     }
 
@@ -23,19 +21,13 @@ class ProfileViewModel:ViewModel() {
         }
     }
 
-    fun insertOsuProfileByUsername(username: String) {
+    fun insertOsuProfile(id_user: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            mProfileRepository.insertOsuProfileByUsername(username)
+            mProfileRepository.insertOsuProfile(id_user)
         }
     }
 
-    fun insertOsuProfileByUserId(user_id: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            mProfileRepository.insertOsuProfileByUserId(user_id)
-        }
-    }
-
-    fun deleteAllAndroidVersion() {
+    fun deleteProfile() {
         viewModelScope.launch(Dispatchers.IO) {
             mProfileRepository.deleteAllOsuProfile()
         }

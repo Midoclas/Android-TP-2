@@ -1,11 +1,8 @@
 package tanguy_paquet.insset.tp_2.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import retrofit2.Retrofit
 import tanguy_paquet.insset.tp_2.architecture.DefineDatabase
 import tanguy_paquet.insset.tp_2.architecture.RetrofitBuilder
-import tanguy_paquet.insset.tp_2.model.OsuBeatmapsetidRetrofit
 import tanguy_paquet.insset.tp_2.model.OsuBest
 import tanguy_paquet.insset.tp_2.model.OsuBestRetrofit
 
@@ -36,7 +33,7 @@ class BestRepository {
     }
 }
 
-fun ArrayList<OsuBestRetrofit>.setProfile(): List<OsuBest> {
+private fun ArrayList<OsuBestRetrofit>.setProfile(): List<OsuBest> {
     return map { eachItem ->
         OsuBest(
             beatmap_id = eachItem.beatmap_id,

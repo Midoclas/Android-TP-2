@@ -12,7 +12,7 @@ import tanguy_paquet.insset.tp_2.model.OsuBest
 interface OsuBestDao {
 
 
-    @Query("SELECT * FROM map_table ORDER BY pp ASC")
+    @Query("SELECT * FROM map_table ORDER BY pp DESC")
     fun selectAll(): LiveData<List<OsuBest>>
 
 

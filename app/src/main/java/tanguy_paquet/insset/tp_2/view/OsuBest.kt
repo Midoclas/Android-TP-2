@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import tanguy_paquet.insset.tp_2.R
-import tanguy_paquet.insset.tp_2.databinding.ItemCustomRecyclerBinding
+import tanguy_paquet.insset.tp_2.databinding.BestRecyclerBinding
 import tanguy_paquet.insset.tp_2.databinding.ItemCustomRecyclerHeaderBinding
 import tanguy_paquet.insset.tp_2.model.*
 import java.lang.RuntimeException
@@ -24,15 +24,15 @@ private val diffItemUtils = object : DiffUtil.ItemCallback<MyObjectForRecyclerVi
     }
 }
 
-class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.ViewHolder>(
+class OsuBestAdaptor : ListAdapter<MyObjectForRecyclerView, RecyclerView.ViewHolder>(
     diffItemUtils
 ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         when (viewType) {
             MyItemType.ROW.type -> {
-                OsuProfileViewHolder(
-                    ItemCustomRecyclerBinding.inflate(
+                OsuBestViewHolder(
+                    BestRecyclerBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
                         false
@@ -40,7 +40,7 @@ class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.
                 )
             }
             MyItemType.HEADER.type -> {
-                AndroidVersionHeaderViewHolder(
+                OsuBestHeaderViewHolder(
                     ItemCustomRecyclerHeaderBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
@@ -53,8 +53,8 @@ class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
         when (holder.itemViewType) {
-            MyItemType.ROW.type -> (holder as OsuProfileViewHolder).bind(getItem(position) as BestUi)
-            MyItemType.HEADER.type -> (holder as AndroidVersionHeaderViewHolder).bind(getItem(position) as HeaderUi)
+            MyItemType.ROW.type -> (holder as OsuBestViewHolder).bind(getItem(position) as BestUi)
+            MyItemType.HEADER.type -> (holder as OsuBestHeaderViewHolder).bind(getItem(position) as HeaderUi)
             else -> throw RuntimeException("Wrong view type received ${holder.itemView}")
         }
 
@@ -62,13 +62,12 @@ class AndroidVersionAdapter : ListAdapter<MyObjectForRecyclerView, RecyclerView.
         return when (getItem(position)) {
             is BestUi -> MyItemType.ROW.type
             is HeaderUi -> MyItemType.HEADER.type
-            is ProfileUi -> MyItemType.ROW.type
         }
     }
 }
 
-class OsuProfileViewHolder(
-    private val binding: ItemCustomRecyclerBinding
+class OsuBestViewHolder(
+    private val binding: BestRecyclerBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     var formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
 
@@ -101,7 +100,7 @@ class OsuProfileViewHolder(
     }
 }
 
-class AndroidVersionHeaderViewHolder(
+class OsuBestHeaderViewHolder(
     private val binding: ItemCustomRecyclerHeaderBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(HeaderUi: HeaderUi) {

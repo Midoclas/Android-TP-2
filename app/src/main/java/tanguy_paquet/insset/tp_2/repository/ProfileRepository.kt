@@ -11,7 +11,7 @@ class ProfileRepository {
     private val mOsuProfileDao =
         DefineDatabase.instance.mApplicationDatabase.mOsuProfileDao()
 
-    fun selectAllOsuProfile(): LiveData<List<OsuProfile>> {
+    fun selectOsuProfile(): LiveData<List<OsuProfile>> {
         return mOsuProfileDao.selectAll()
     }
 
@@ -19,10 +19,7 @@ class ProfileRepository {
         RetrofitBuilder.call().getOsuProfile("4717982")
     }
 
-    suspend fun insertOsuProfileByUsername(username: String) {
-        mOsuProfileDao.insert(RetrofitBuilder.call().getOsuProfile(username).setProfile())
-    }
-    suspend fun insertOsuProfileByUserId(user_id: String) {
+    suspend fun insertOsuProfile(user_id: String) {
         mOsuProfileDao.insert(RetrofitBuilder.call().getOsuProfile(user_id).setProfile())
     }
 

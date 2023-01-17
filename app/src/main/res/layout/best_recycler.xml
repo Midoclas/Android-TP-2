@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/itemRecyclerViewPhoneName"
+        android:id="@+id/pseudo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="20dp"
@@ -31,7 +31,10 @@
     <TextView
         android:id="@+id/score"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
     <TextView
         android:id="@+id/maxcombo"
         android:layout_width="wrap_content"

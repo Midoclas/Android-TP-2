@@ -17,7 +17,7 @@ interface OsuProfileDao {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(androidVersion: List<OsuBest>)
+    fun insert(androidVersion: List<OsuProfile>)
 
 
     @Query("DELETE FROM profile_table")

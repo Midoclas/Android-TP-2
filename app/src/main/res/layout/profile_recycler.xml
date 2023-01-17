@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingConstraints">
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        app:circularflow_radiusInDP="50"
+        app:layout_constraintBottom_toTopOf="@+id/scoreSS"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/pseudo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pseudo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/user_id"
+        app:layout_constraintLeft_toRightOf="@+id/avatar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@tools:sample/cities" />
+
+    <TextView
+        android:id="@+id/user_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
+        app:layout_constraintLeft_toLeftOf="@+id/pseudo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pseudo"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@tools:sample/full_names" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="avatar" />
+
+    <TextView
+        android:id="@+id/scoreSS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_background_item"
+        android:drawableLeft="@drawable/ss"
+        android:padding="10dp"
+        android:textSize="25sp"
+        android:textAlignment="center"
+
+        app:layout_constraintBottom_toTopOf="@+id/scoreSSH"
+        app:layout_constraintEnd_toStartOf="@+id/scoreS"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrierScore"
+        tools:text="156" />
+
+    <TextView
+        android:id="@+id/scoreSSH"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_background_item"
+        android:drawableLeft="@drawable/ssh"
+        android:padding="10dp"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/scoreSH"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreSS"
+        tools:text="51" />
+
+    <TextView
+        android:id="@+id/scoreS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_background_item"
+        android:drawableLeft="@drawable/s"
+        android:padding="10dp"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/scoreSH"
+        app:layout_constraintRight_toLeftOf="@+id/barrierA"
+        app:layout_constraintLeft_toRightOf="@+id/scoreSS"
+        app:layout_constraintTop_toTopOf="@+id/barrierScore"
+        tools:text="1569" />
+
+    <TextView
+        android:id="@+id/scoreSH"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_background_item"
+        android:drawableLeft="@drawable/sh"
+        android:padding="10dp"
+        android:textSize="25sp"
+
+        android:textAlignment="center"
+
+
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/barrierA"
+        app:layout_constraintTop_toBottomOf="@+id/scoreS"
+        app:layout_constraintLeft_toRightOf="@+id/scoreSSH"
+        tools:text="1569" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        android:padding="10dp"
+        app:constraint_referenced_ids="scoreA" />
+
+    <TextView
+        android:id="@+id/scoreA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_background_item"
+        android:drawableLeft="@drawable/a"
+        android:padding="10dp"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrierScore"
+
+        tools:text="2500" />
+</androidx.constraintlayout.widget.ConstraintLayout>
