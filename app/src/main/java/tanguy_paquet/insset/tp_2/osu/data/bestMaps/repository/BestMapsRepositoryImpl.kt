@@ -12,8 +12,8 @@ class BestMapsRepositoryImpl: BestMapsRepository {
     private val mBestMapsDao =
         OsuApplication.instance.mApplicationDatabase.mBestMapsDao()
 
-    override fun selectAllBestMaps(): LiveData<List<BestMapsRoom>> {
-        return mBestMapsDao.selectAll()
+    override fun selectBestMaps(user_id: String): LiveData<List<BestMapsRoom>> {
+        return mBestMapsDao.selectBestMapsByUserId(user_id)
     }
 
     override suspend fun insertBestMaps(user_id: String) {

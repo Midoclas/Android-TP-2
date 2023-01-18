@@ -13,6 +13,7 @@ data class BestMapsUi(
     val countmiss: String,
     val perfect: String,
     val enabled_mods: String,
+    val user_id: String,
     val date: String,
     val rank: String,
     val pp: String

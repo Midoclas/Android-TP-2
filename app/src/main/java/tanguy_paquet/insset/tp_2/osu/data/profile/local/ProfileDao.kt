@@ -12,6 +12,8 @@ interface ProfileDao {
     @Query("SELECT * FROM profile_table ORDER BY user_id ASC")
     fun selectAll(): LiveData<List<ProfileRoom>>
 
+    @Query("SELECT user_id FROM profile_table WHERE username = :username")
+    fun getUserIdByUsername(username: String): LiveData<ProfileRoom>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(androidVersion: List<ProfileRoom>)

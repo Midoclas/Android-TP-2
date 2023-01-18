@@ -10,4 +10,6 @@ interface ProfileRepository {
     suspend fun insertOsuProfile(user_id: String)
 
     fun deleteAllOsuProfile()
+
+    fun getUserIdByUsername(username: String): LiveData<ProfileRoom>
 }

@@ -15,6 +15,7 @@ fun ArrayList<BestMapsRetrofit>.toRoom(): List<BestMapsRoom> {
             countmiss = it.countmiss,
             perfect = it.perfect,
             enabled_mods = it.enabled_mods,
+            user_id = it.user_id,
             date = it.date,
             rank = it.rank,
             pp = it.pp

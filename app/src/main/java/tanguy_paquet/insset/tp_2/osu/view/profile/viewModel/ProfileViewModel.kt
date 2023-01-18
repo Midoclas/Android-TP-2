@@ -18,6 +18,10 @@ class ProfileViewModel:ViewModel() {
         selectOsuProfileUseCase.selectOsuProfile().map {
         it.fromDomainToUi()
     }
+
+    fun getUserIdByUsername(username: String): LiveData<ProfileUi> {
+        return GetUserIdByUsernameUseCase.getUserIdByUsername(username)
+    }
     fun insertOsuProfile(id_user: String) {
         viewModelScope.launch(Dispatchers.IO) {
             insertOsuProfileUseCase.InsertOsuProfile(id_user)

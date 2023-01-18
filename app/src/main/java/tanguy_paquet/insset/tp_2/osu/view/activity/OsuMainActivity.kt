@@ -56,14 +56,16 @@ class OsuMainActivity: AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        bestViewModel.mBestLiveData.observe(this, bestMapsListObserver)
+        intent.getStringExtra("username")
+            ?.let { bestViewModel.mBestLiveData(it).observe(this, bestMapsListObserver) }
         profileViewModel.mProfileLiveData.observe(this, profileListObserver)
     }
 
 
     override fun onStop() {
         super.onStop()
-        bestViewModel.mBestLiveData.removeObserver(bestMapsListObserver)
+        intent.getStringExtra("username")
+            ?.let { bestViewModel.mBestLiveData(it).removeObserver(bestMapsListObserver) }
         profileViewModel.mProfileLiveData.removeObserver(profileListObserver)
     }
 

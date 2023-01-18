@@ -24,4 +24,8 @@ class ProfileRepositoryImpl: ProfileRepository {
     override fun deleteAllOsuProfile() {
         mProfileDao.deleteAll()
     }
+
+    override fun getUserIdByUsername(username: String): LiveData<ProfileRoom> {
+        mProfileDao.getUserIdByUsername(username)
+    }
 }

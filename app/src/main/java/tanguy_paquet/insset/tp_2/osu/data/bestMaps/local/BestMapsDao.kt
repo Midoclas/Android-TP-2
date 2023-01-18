@@ -9,9 +9,8 @@ import tanguy_paquet.insset.tp_2.osu.data.bestMaps.model.BestMapsRoom
 
 @Dao
 interface BestMapsDao {
-    @Query("SELECT * FROM map_table ORDER BY pp DESC")
-    fun selectAll(): LiveData<List<BestMapsRoom>>
-
+    @Query("SELECT * FROM map_table WHERE user_id = :user_id ORDER BY pp DESC")
+    fun selectBestMapsByUserId(user_id: String): LiveData<List<BestMapsRoom>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(androidVersion: List<BestMapsRoom>)

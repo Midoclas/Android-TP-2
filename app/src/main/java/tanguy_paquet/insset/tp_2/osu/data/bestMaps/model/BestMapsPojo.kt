@@ -37,6 +37,9 @@ data class BestMapsRoom (
     @ColumnInfo(name = "enabled_mods")
     val enabled_mods: String,
 
+    @ColumnInfo(name = "user_id")
+    val user_id: String,
+
     @ColumnInfo(name = "date")
     val date: String,
 
@@ -80,6 +83,9 @@ data class BestMapsRetrofit(
 
     @SerializedName("enabled_mods")
     val enabled_mods: String,
+
+    @SerializedName("user_id")
+    val user_id: String,
 
     @SerializedName("date")
     val date: String,
