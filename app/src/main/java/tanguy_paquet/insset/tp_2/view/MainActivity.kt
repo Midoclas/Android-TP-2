@@ -51,22 +51,19 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.adapter = bestAdapter
         binding.recyclerViewProfile.adapter = profileAdapter
 
-        binding.addItemButton.setOnClickListener { addBestMaps() }
+        binding.addItemButton.setOnClickListener { init() }
         binding.deleteAllItemButton.setOnClickListener { deleteBestMaps() }
 
     }
 
-    private fun addBestMaps() {
-        bestViewModel.insertOsuBest("4717982")
-        addProfile()
+    private fun init() {
+        bestViewModel.insertOsuBest("vicl")
+        profileViewModel.insertOsuProfile("vicl")
     }
 
     private fun deleteBestMaps() {
         bestViewModel.deleteAllBest()
-    }
-
-    private fun addProfile() {
-        profileViewModel.insertOsuProfile("4717982")
+        profileViewModel.deleteProfile()
     }
 
 

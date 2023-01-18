@@ -76,22 +76,23 @@ class OsuBestViewHolder(
             .load("https://assets.ppy.sh/beatmaps/"+BestUi.beatmapset_id+"/covers/cover@2x.jpg")
             .placeholder(R.drawable.ic_launcher_background)
             .into(binding.beatmapImage)
-        binding.score.text = BestUi.beatmapset_id
-        binding.maxcombo.text = BestUi.maxcombo
+
         binding.count50.text = BestUi.count50
         binding.count100.text = BestUi.count100
         binding.count300.text = BestUi.count300
         binding.countmiss.text = BestUi.countmiss
+        binding.pp.text = BestUi.pp
         /*if (BestUi.perfect == "1") {
             Glide.with(itemView.context)
             .load("https://b.ppy.sh/thumb/"+BestUi.beatmap_id+"l.jpg")
             .placeholder(R.drawable.ic_launcher_background)
             .into(binding.perfectImage)
         }
-
+        binding.score.text = BestUi.beatmapset_id
+        binding.maxcombo.text = BestUi.maxcombo
         binding.date.text = BestUi.date.format(formatter)
         binding.rank.text = BestUi.rank
-        binding.pp.text = BestUi.pp*/
+        */
         /*Glide.with(itemView.context)
             .load("https://a.ppy.sh/4717982")
             .placeholder(R.drawable.ic_launcher_background)
