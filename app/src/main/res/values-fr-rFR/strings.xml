@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Application Osu</string>
+    <string name="get_profile">Ouvrir le profile</string>
+    <string name="about_me">À propos de moi</string>
+    <string name="add">Ajouter</string>
+    <string name="delete">Tout supprimer</string>
+</resources>

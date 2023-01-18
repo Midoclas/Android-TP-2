@@ -12,14 +12,14 @@ import tanguy_paquet.insset.tp_2.osu.domain.bestMaps.usecase.*
 import tanguy_paquet.insset.tp_2.osu.view.bestMaps.mapper.fromDomainToUi
 import tanguy_paquet.insset.tp_2.osu.view.bestMaps.model.BestMapsUi
 
-class BestViewModel(username: String) : ViewModel() {
+class BestViewModel: ViewModel() {
     private val deleteAllBestMapsUseCase: DeleteAllBestMapsUseCase by lazy { DeleteAllBestMapsUseCase() }
     private val insertBestMapsUseCase: InsertBestMapsUseCase by lazy { InsertBestMapsUseCase() }
     private val selectBestMapsUseCase: SelectBestMapsUseCase by lazy { SelectBestMapsUseCase() }
     private val setBeatmapsetIdUseCase: SetBeatmapsetIdUseCase by lazy { SetBeatmapsetIdUseCase() }
 
-    fun mBestLiveData(user_id: String): LiveData<List<BestMapsUi>> =
-    selectBestMapsUseCase.selectBestMaps(user_id).map {
+    var mBestLiveData: LiveData<List<BestMapsUi>> =
+    selectBestMapsUseCase.selectBestMaps().map {
         it.setAllBeatmapset()
         it.fromDomainToUi()
     }
@@ -40,7 +40,6 @@ class BestViewModel(username: String) : ViewModel() {
         asSequence().forEach {
             viewModelScope.launch(Dispatchers.IO) {
                 if (it.beatmapset_id == "0") {
-                    Log.i("Change", "Changement de variable")
                     setBeatmapsetIdUseCase.setBeatmapsetId(it.beatmap_id)
                 }
             }

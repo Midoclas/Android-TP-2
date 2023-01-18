@@ -1,5 +1,6 @@
 package tanguy_paquet.insset.tp_2.osu.domain.bestMaps.usecase
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import tanguy_paquet.insset.tp_2.osu.data.bestMaps.model.BestMapsRoom
 import tanguy_paquet.insset.tp_2.osu.data.bestMaps.repository.BestMapsRepositoryImpl
@@ -10,7 +11,8 @@ class SelectBestMapsUseCase {
         BestMapsRepositoryImpl()
     }
 
-    fun selectBestMaps(user_id: String): LiveData<List<BestMapsRoom>> {
-        return bestMapsRepository.selectBestMaps(user_id)
+    fun selectBestMaps(): LiveData<List<BestMapsRoom>> {
+        return bestMapsRepository.selectBestMaps()
     }
+
 }

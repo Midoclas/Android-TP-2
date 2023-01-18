@@ -1,12 +1,12 @@
 # Fonctionnalité 1 : Homepage
 (2 points)
 
-- Implémenter une activité contenant les informations des personnes du groupe.
-- L’activité doit supporter le mode nuit
+- ~~Implémenter une activité contenant les informations des personnes du groupe.~~
+- ~~L’activité doit supporter le mode nuit~~
 - Contenir 2 boutons :
-- Rediriger vers la fonctionnalité 2 du sujet
+- ~~Rediriger vers la fonctionnalité 2 du sujet~~
 - Rediriger vers la fonctionnalité 3 du sujet.
-- Traduisez quelques textes en Français et en Anglais.
+- ~~Traduisez quelques textes en Français et en Anglais.~~
 
 
 ### Bonus (1 point)

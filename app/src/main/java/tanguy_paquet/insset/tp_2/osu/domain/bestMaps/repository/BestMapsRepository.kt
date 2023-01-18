@@ -5,7 +5,7 @@ import tanguy_paquet.insset.tp_2.osu.data.bestMaps.model.BestMapsRoom
 
 interface BestMapsRepository {
 
-    fun selectBestMaps(user_id: String): LiveData<List<BestMapsRoom>>
+    fun selectBestMaps(): LiveData<List<BestMapsRoom>>
 
     suspend fun insertBestMaps(user_id: String)
 

@@ -1,5 +1,6 @@
 package tanguy_paquet.insset.tp_2.osu.data.bestMaps.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import tanguy_paquet.insset.tp_2.architecture.OsuApplication
 import tanguy_paquet.insset.tp_2.architecture.RetrofitBuilder
@@ -12,8 +13,8 @@ class BestMapsRepositoryImpl: BestMapsRepository {
     private val mBestMapsDao =
         OsuApplication.instance.mApplicationDatabase.mBestMapsDao()
 
-    override fun selectBestMaps(user_id: String): LiveData<List<BestMapsRoom>> {
-        return mBestMapsDao.selectBestMapsByUserId(user_id)
+    override fun selectBestMaps(): LiveData<List<BestMapsRoom>> {
+        return mBestMapsDao.selectBestMaps()
     }
 
     override suspend fun insertBestMaps(user_id: String) {

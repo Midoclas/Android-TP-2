@@ -5,6 +5,7 @@ import tanguy_paquet.insset.tp_2.architecture.OsuApplication
 import tanguy_paquet.insset.tp_2.architecture.RetrofitBuilder
 import tanguy_paquet.insset.tp_2.osu.data.profile.mapper.toRoom
 import tanguy_paquet.insset.tp_2.osu.data.profile.model.ProfileRoom
+import tanguy_paquet.insset.tp_2.osu.data.profile.model.UserIdRoom
 import tanguy_paquet.insset.tp_2.osu.domain.profile.repository.ProfileRepository
 
 class ProfileRepositoryImpl: ProfileRepository {
@@ -12,8 +13,8 @@ class ProfileRepositoryImpl: ProfileRepository {
     private val mProfileDao =
         OsuApplication.instance.mApplicationDatabase.mProfileDao()
 
-    override fun selectOsuProfile(): LiveData<List<ProfileRoom>> {
-        return mProfileDao.selectAll()
+    override fun selectOsuProfile(username: String): LiveData<List<ProfileRoom>> {
+        return mProfileDao.selectProfileByusername(username)
     }
 
     override suspend fun insertOsuProfile(user_id: String) {
@@ -25,7 +26,7 @@ class ProfileRepositoryImpl: ProfileRepository {
         mProfileDao.deleteAll()
     }
 
-    override fun getUserIdByUsername(username: String): LiveData<ProfileRoom> {
-        mProfileDao.getUserIdByUsername(username)
+    override fun getUserIdByUsername(username: String): LiveData<List<UserIdRoom>> {
+        return mProfileDao.getUserIdByUsername(username)
     }
 }

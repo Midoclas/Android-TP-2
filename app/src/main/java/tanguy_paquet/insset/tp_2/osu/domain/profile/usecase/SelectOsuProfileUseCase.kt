@@ -10,7 +10,7 @@ class SelectOsuProfileUseCase {
         ProfileRepositoryImpl()
     }
 
-    fun selectOsuProfile(): LiveData<List<ProfileRoom>> {
-        return profileRepository.selectOsuProfile()
+    fun selectOsuProfile(username: String): LiveData<List<ProfileRoom>> {
+        return profileRepository.selectOsuProfile(username)
     }
 }

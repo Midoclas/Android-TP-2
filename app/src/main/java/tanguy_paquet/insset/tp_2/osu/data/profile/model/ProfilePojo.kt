@@ -47,6 +47,12 @@ data class ProfileRoom(
     var id: Long = user_id.toLong()
 }
 
+data class UserIdRoom(
+    @ColumnInfo(name = "user_id")
+    val user_id: String
+) {
+    override fun toString(): String = user_id
+}
 data class ProfileRetrofit(
 
     @SerializedName("user_id")

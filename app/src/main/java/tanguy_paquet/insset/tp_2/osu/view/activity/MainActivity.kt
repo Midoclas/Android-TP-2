@@ -19,12 +19,20 @@ class MainActivity : AppCompatActivity() {
         binding.startOsuActivityButton.setOnClickListener {
             goToOsuActivityIntent()
         }
+
+        binding.aboutMe.setOnClickListener {
+            goToAboutMeActivity()
+        }
     }
 
     private fun goToOsuActivityIntent() {
         val nav = Intent(this, OsuMainActivity::class.java)
         nav.putExtra("username", binding.usernameInput.text.toString())
         startActivity(nav)
+    }
+
+    private fun goToAboutMeActivity() {
+        startActivity(Intent(this, AboutMeActivity::class.java))
     }
 }
 

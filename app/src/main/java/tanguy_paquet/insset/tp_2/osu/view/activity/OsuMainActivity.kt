@@ -1,9 +1,12 @@
 package tanguy_paquet.insset.tp_2.osu.view.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import tanguy_paquet.insset.tp_2.databinding.ActivityRecyclerViewBinding
@@ -54,22 +57,27 @@ class OsuMainActivity: AppCompatActivity() {
 
     }
 
+    @SuppressLint("CheckResult")
     override fun onStart() {
         super.onStart()
+        init()
+
         intent.getStringExtra("username")
-            ?.let { bestViewModel.mBestLiveData(it).observe(this, bestMapsListObserver) }
-        profileViewModel.mProfileLiveData.observe(this, profileListObserver)
+            ?.let { profileViewModel.mProfileLiveData(it).observe(this, profileListObserver) }
+        bestViewModel.mBestLiveData.observe(this, bestMapsListObserver)
+
     }
 
 
     override fun onStop() {
         super.onStop()
+        bestViewModel.mBestLiveData.removeObserver(bestMapsListObserver)
         intent.getStringExtra("username")
-            ?.let { bestViewModel.mBestLiveData(it).removeObserver(bestMapsListObserver) }
-        profileViewModel.mProfileLiveData.removeObserver(profileListObserver)
+            ?.let { profileViewModel.mProfileLiveData(it).removeObserver(profileListObserver) }
     }
 
     private fun init() {
+        bestViewModel.deleteAllBest()
         intent.getStringExtra("username")?.let { bestViewModel.insertBestMaps(it) }
         intent.getStringExtra("username")?.let { profileViewModel.insertOsuProfile(it) }
     }
