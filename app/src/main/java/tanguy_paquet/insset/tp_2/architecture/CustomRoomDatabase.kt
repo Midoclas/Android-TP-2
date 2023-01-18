@@ -2,22 +2,22 @@ package tanguy_paquet.insset.tp_2.architecture
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import tanguy_paquet.insset.tp_2.dao.OsuProfileDao
-import tanguy_paquet.insset.tp_2.dao.OsuBestDao
-import tanguy_paquet.insset.tp_2.model.OsuBest
-import tanguy_paquet.insset.tp_2.model.OsuProfile
+import tanguy_paquet.insset.tp_2.osu.data.bestMaps.local.BestMapsDao
+import tanguy_paquet.insset.tp_2.osu.data.bestMaps.model.BestMapsRoom
+import tanguy_paquet.insset.tp_2.osu.data.profile.local.ProfileDao
+import tanguy_paquet.insset.tp_2.osu.data.profile.model.ProfileRoom
 
 
 @Database(
     entities = [
-        OsuProfile::class,
-        OsuBest::class
+        ProfileRoom::class,
+        BestMapsRoom::class
     ],
     version = 3,
     exportSchema = false
 )
 abstract class CustomRoomDatabase : RoomDatabase() {
-    abstract fun mOsuProfileDao(): OsuProfileDao
-    abstract fun mOsuBestDao(): OsuBestDao
+    abstract fun mProfileDao(): ProfileDao
+    abstract fun mBestMapsDao(): BestMapsDao
 }
 

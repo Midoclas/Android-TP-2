@@ -5,7 +5,8 @@ import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import tanguy_paquet.insset.tp_2.endpoint.OsuEndpoint
+import tanguy_paquet.insset.tp_2.osu.data.bestMaps.remote.BestMapsEndpoint
+import tanguy_paquet.insset.tp_2.osu.data.profile.remote.ProfileEndpoint
 
 object RetrofitBuilder {
     private const val BASE_URL:String = "https://osu.ppy.sh/api/"
@@ -25,5 +26,6 @@ object RetrofitBuilder {
             .build()
     }
 
-    fun call() : OsuEndpoint = retrofit.create(OsuEndpoint::class.java)
+    fun BestMapsCall() : BestMapsEndpoint = retrofit.create(BestMapsEndpoint::class.java)
+    fun ProfileCall() : ProfileEndpoint = retrofit.create(ProfileEndpoint::class.java)
 }
