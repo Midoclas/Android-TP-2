@@ -75,7 +75,7 @@ class BestMapsViewHolder(
 
     var formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
     var score = mapOf(
-        "SS" to R.drawable.ss,
+        "X" to R.drawable.ss,
         "XH" to R.drawable.ssh,
         "S" to R.drawable.s,
         "SH" to R.drawable.sh,

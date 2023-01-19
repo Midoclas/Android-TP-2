@@ -43,7 +43,7 @@ data class ProfileRoom(
     @ColumnInfo(name = "pp_country_rank")
     val pp_country_rank: String,
 ) {
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     var id: Long = user_id.toLong()
 }
 

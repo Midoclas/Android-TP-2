@@ -2,6 +2,7 @@ package tanguy_paquet.insset.tp_2.osu.view.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -26,6 +27,7 @@ class OsuMainActivity: AppCompatActivity() {
 
 
     private val bestMapsListObserver = Observer<List<BestMapsUiObject>> {
+        Log.d("Test", "null() called")
         bestAdapter.submitList(it)
     }
     private val profileListObserver = Observer<List<ProfileUi>> {
@@ -57,33 +59,34 @@ class OsuMainActivity: AppCompatActivity() {
 
     }
 
-    @SuppressLint("CheckResult")
+
     override fun onStart() {
         super.onStart()
-        init()
-
         intent.getStringExtra("username")
             ?.let { profileViewModel.mProfileLiveData(it).observe(this, profileListObserver) }
         bestViewModel.mBestLiveData.observe(this, bestMapsListObserver)
-
     }
 
 
     override fun onStop() {
         super.onStop()
-        bestViewModel.mBestLiveData.removeObserver(bestMapsListObserver)
         intent.getStringExtra("username")
             ?.let { profileViewModel.mProfileLiveData(it).removeObserver(profileListObserver) }
+        bestViewModel.mBestLiveData.removeObserver(bestMapsListObserver)
+        bestViewModel.deleteAllBest()
     }
 
+
     private fun init() {
-        bestViewModel.deleteAllBest()
-        intent.getStringExtra("username")?.let { bestViewModel.insertBestMaps(it) }
+        super.onStop()
         intent.getStringExtra("username")?.let { profileViewModel.insertOsuProfile(it) }
+        intent.getStringExtra("username")?.let { bestViewModel.insertBestMaps(it) }
+
     }
 
     private fun deleteBestMaps() {
         bestViewModel.deleteAllBest()
         profileViewModel.deleteProfile()
+
     }
 }

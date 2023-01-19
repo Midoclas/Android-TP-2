@@ -14,10 +14,13 @@ class BestMapsRepositoryImpl: BestMapsRepository {
         OsuApplication.instance.mApplicationDatabase.mBestMapsDao()
 
     override fun selectBestMaps(): LiveData<List<BestMapsRoom>> {
+        Log.d("Test", "selectBestMaps() called")
         return mBestMapsDao.selectBestMaps()
     }
 
     override suspend fun insertBestMaps(user_id: String) {
+        Log.d("Test", "insertBestMaps() called with: user_id = $user_id")
+        Log.d("Test", "insertBestMaps() called with: user_id = ${RetrofitBuilder.BestMapsCall().getBestMaps(user_id)}")
         return mBestMapsDao.insert(RetrofitBuilder.BestMapsCall().getBestMaps(user_id).toRoom())
     }
 

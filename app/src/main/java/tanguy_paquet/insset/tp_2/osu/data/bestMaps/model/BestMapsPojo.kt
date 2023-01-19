@@ -55,7 +55,7 @@ data class BestMapsRoom (
     @ColumnInfo(name = "artist")
     val artist: String = "0"
 ) {
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     var id: Long = beatmap_id.toLong()
 }
 
