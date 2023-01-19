@@ -53,6 +53,7 @@ class ProfileViewHolder(
         binding.scoreSSH.text = ProfileUi.count_rank_ssh
         binding.scoreSH.text = ProfileUi.count_rank_sh
         binding.scoreA.text = ProfileUi.count_rank_a
+        binding.rank.text = "Rank : "+ProfileUi.pp_rank
         Glide.with(itemView.context)
             .load("https://a.ppy.sh/"+ProfileUi.user_id)
             .placeholder(R.drawable.ic_launcher_background)

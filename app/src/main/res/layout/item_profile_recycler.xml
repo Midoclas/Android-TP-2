@@ -35,12 +35,23 @@
         android:id="@+id/user_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/avatar"
+        app:layout_constraintBottom_toTopOf="@+id/rank"
         app:layout_constraintLeft_toLeftOf="@+id/pseudo"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pseudo"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="@tools:sample/full_names" />
+
+    <TextView
+        android:id="@+id/rank"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
+        app:layout_constraintLeft_toLeftOf="@+id/pseudo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_id"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="rank : 46000" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierScore"
@@ -52,12 +63,12 @@
     <TextView
         android:id="@+id/scoreSS"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_background_item"
         android:drawableLeft="@drawable/ss"
         android:padding="10dp"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:textAlignment="center"
 
         app:layout_constraintBottom_toTopOf="@+id/scoreSSH"
@@ -70,12 +81,12 @@
     <TextView
         android:id="@+id/scoreSSH"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_background_item"
         android:drawableLeft="@drawable/ssh"
         android:padding="10dp"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/scoreSH"
@@ -87,12 +98,12 @@
     <TextView
         android:id="@+id/scoreS"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_background_item"
         android:drawableLeft="@drawable/s"
         android:padding="10dp"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/scoreSH"
         app:layout_constraintRight_toLeftOf="@+id/barrierA"
@@ -103,12 +114,12 @@
     <TextView
         android:id="@+id/scoreSH"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_background_item"
         android:drawableLeft="@drawable/sh"
         android:padding="10dp"
-        android:textSize="25sp"
+        android:textSize="15sp"
 
         android:textAlignment="center"
 
@@ -131,12 +142,12 @@
     <TextView
         android:id="@+id/scoreA"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_background_item"
         android:drawableLeft="@drawable/a"
         android:padding="10dp"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
 

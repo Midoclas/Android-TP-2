@@ -74,19 +74,30 @@ class BestMapsViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     var formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
+    var score = mapOf(
+        "SS" to R.drawable.ss,
+        "XH" to R.drawable.ssh,
+        "S" to R.drawable.s,
+        "SH" to R.drawable.sh,
+        "A" to R.drawable.a,
+        "B" to R.drawable.b,
+        "C" to R.drawable.c,
+        "D" to R.drawable.d,
+    )
 
     fun bind(BestMapsUi: BestMapsUi) {
         Glide.with(itemView.context)
             .load("https://assets.ppy.sh/beatmaps/"+BestMapsUi.beatmapset_id+"/covers/cover@2x.jpg")
             .placeholder(R.drawable.ic_launcher_background)
             .into(binding.beatmapImage)
-
-        binding.count50.text = BestMapsUi.count50
-        binding.count100.text = BestMapsUi.count100
-        binding.count300.text = BestMapsUi.count300
-        binding.countmiss.text = BestMapsUi.countmiss
-        binding.pp.text = BestMapsUi.pp
+        binding.pp.text = BestMapsUi.pp + " PP"
         binding.title.text = BestMapsUi.title
+        binding.artist.text = BestMapsUi.artist
+        Glide.with(itemView.context)
+            .load(score[BestMapsUi.rank])
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(binding.rankImage)
+
         /*if (BestMapsUi.perfect == "1") {
             Glide.with(itemView.context)
             .load("https://b.ppy.sh/thumb/"+BestMapsUi.beatmap_id+"l.jpg")
