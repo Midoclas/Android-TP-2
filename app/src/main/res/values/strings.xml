@@ -4,4 +4,5 @@
     <string name="get_profile">Open profile</string>
     <string name="add">Add</string>
     <string name="delete">Delete all</string>
+    <string name="disconnect">Disconnect</string>
 </resources>

@@ -11,7 +11,7 @@
         android:alpha="0.6"
         android:scaleType="center"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="125dp"
         app:circularflow_radiusInDP="50"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -61,6 +61,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/count100"
+        app:layout_constraintBottom_toTopOf="@id/count50"
         tools:text="@tools:sample/cities"/>
     <TextView
         android:id="@+id/count100"
@@ -73,6 +74,7 @@
         app:layout_constraintLeft_toRightOf="@id/count300"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@id/barrierScore"
+        app:layout_constraintBottom_toTopOf="@id/countmiss"
         tools:text="@tools:sample/cities"/>
     <TextView
         android:id="@+id/count50"
@@ -82,6 +84,7 @@
         android:textAlignment="center"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/count300"
         app:layout_constraintLeft_toLeftOf="parent"

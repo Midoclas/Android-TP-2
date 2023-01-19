@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1088570620228",
+    "project_id": "osu-application-efdca",
+    "storage_bucket": "osu-application-efdca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088570620228:android:c0a7c846526604e10a7f11",
+        "android_client_info": {
+          "package_name": "tanguy_paquet.insset.tp_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088570620228-s2paqkaebcoplt3ur7bsq0k6smrdurm5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzqiAMTho45CUYP5x75R-S3Ghx6vhFcic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088570620228-s2paqkaebcoplt3ur7bsq0k6smrdurm5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

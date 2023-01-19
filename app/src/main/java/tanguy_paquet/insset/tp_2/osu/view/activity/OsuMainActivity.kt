@@ -2,14 +2,12 @@ package tanguy_paquet.insset.tp_2.osu.view.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import tanguy_paquet.insset.tp_2.databinding.ActivityRecyclerViewBinding
+import tanguy_paquet.insset.tp_2.databinding.ActivityOsuApplicationBinding
 import tanguy_paquet.insset.tp_2.osu.view.bestMaps.model.BestMapsUiObject
 import tanguy_paquet.insset.tp_2.osu.view.bestMaps.viewModel.BestViewModel
 import tanguy_paquet.insset.tp_2.osu.view.profile.model.ProfileUi
@@ -20,7 +18,7 @@ import tanguy_paquet.insset.tp_2.view.profile.adapter.ProfileAdapter
 class OsuMainActivity: AppCompatActivity() {
     private lateinit var bestAdapter: BestMapsAdapter
     private lateinit var profileAdapter: ProfileAdapter
-    private lateinit var binding: ActivityRecyclerViewBinding
+    private lateinit var binding: ActivityOsuApplicationBinding
     private lateinit var bestViewModel: BestViewModel
     private lateinit var profileViewModel: ProfileViewModel
 
@@ -34,7 +32,7 @@ class OsuMainActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
+        binding = ActivityOsuApplicationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         bestViewModel = ViewModelProvider(this)[BestViewModel::class.java]

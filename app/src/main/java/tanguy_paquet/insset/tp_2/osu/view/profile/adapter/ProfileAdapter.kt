@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import tanguy_paquet.insset.tp_2.R
-import tanguy_paquet.insset.tp_2.databinding.ProfileRecyclerBinding
+import tanguy_paquet.insset.tp_2.databinding.ItemProfileRecyclerBinding
 import tanguy_paquet.insset.tp_2.osu.view.profile.model.ProfileUi
 
 private val diffItemUtils = object : DiffUtil.ItemCallback<ProfileUi>() {
@@ -27,7 +27,7 @@ class ProfileAdapter : ListAdapter<ProfileUi, ProfileViewHolder>(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
         return ProfileViewHolder(
-            ProfileRecyclerBinding.inflate(
+            ItemProfileRecyclerBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -42,7 +42,7 @@ class ProfileAdapter : ListAdapter<ProfileUi, ProfileViewHolder>(
 }
 
 class ProfileViewHolder(
-    private val binding: ProfileRecyclerBinding
+    private val binding: ItemProfileRecyclerBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(ProfileUi: ProfileUi) {

@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TP2.">
         <activity
-            android:name=".osu.view.activity.MainActivity"
+            android:name=".firebase.view.FirebaseLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,10 +20,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".firebase.view.FirebaseRegisterActivity" />
+        <activity
+            android:name=".osu.view.activity.MainActivity"/>
+        <activity
             android:name=".osu.view.activity.OsuMainActivity"
             android:parentActivityName=".osu.view.activity.MainActivity" />
         <activity
             android:name=".osu.view.activity.AboutMeActivity"
-            android:parentActivityName=".osu.view.activity.AboutMeActivity" />
+            android:parentActivityName=".osu.view.activity.MainActivity" />
     </application>
 </manifest>

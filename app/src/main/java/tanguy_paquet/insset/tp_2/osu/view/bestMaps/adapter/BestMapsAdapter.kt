@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import tanguy_paquet.insset.tp_2.R
-import tanguy_paquet.insset.tp_2.databinding.BestmapsRecyclerBinding
+import tanguy_paquet.insset.tp_2.databinding.ActivityBestmapsRecyclerBinding
 import tanguy_paquet.insset.tp_2.databinding.ItemCustomRecyclerHeaderBinding
 import tanguy_paquet.insset.tp_2.osu.view.bestMaps.model.BestMapsUi
 import tanguy_paquet.insset.tp_2.osu.view.bestMaps.model.BestMapsUiObject
@@ -34,7 +34,7 @@ class BestMapsAdapter : ListAdapter<BestMapsUiObject, RecyclerView.ViewHolder>(
         when (viewType) {
             MyItemType.ROW.type -> {
                 BestMapsViewHolder(
-                    BestmapsRecyclerBinding.inflate(
+                    ActivityBestmapsRecyclerBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
                         false
@@ -69,7 +69,7 @@ class BestMapsAdapter : ListAdapter<BestMapsUiObject, RecyclerView.ViewHolder>(
 }
 
 class BestMapsViewHolder(
-    private val binding: BestmapsRecyclerBinding
+    private val binding: ActivityBestmapsRecyclerBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     var formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
 

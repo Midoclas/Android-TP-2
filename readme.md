@@ -3,9 +3,9 @@
 
 - ~~Implémenter une activité contenant les informations des personnes du groupe.~~
 - ~~L’activité doit supporter le mode nuit~~
-- Contenir 2 boutons :
+- ~~Contenir 2 boutons :~~
 - ~~Rediriger vers la fonctionnalité 2 du sujet~~
-- Rediriger vers la fonctionnalité 3 du sujet.
+- ~~Rediriger vers la fonctionnalité 3 du sujet.~~
 - ~~Traduisez quelques textes en Français et en Anglais.~~
 
 
@@ -35,9 +35,9 @@
 # Fonctionnalité 3 : Firebase
 (6 points)
 
-- Utiliser Firebase Authentification (Avec la méthode que vous voulez)
-- Mettre en place une page de connexion / déconnexion avec un bouton redirigeant vers une activité d’inscription.
-- Afficher l’id du current user quand vous êtes connecté.
+- ~~Utiliser Firebase Authentification (Avec la méthode que vous voulez)~~
+- ~~Mettre en place une page de connexion / déconnexion avec un bouton redirigeant vers une activité d’inscription.~~
+- ~~Afficher l’id du current user quand vous êtes connecté.~~
 
 ### Bonus (1 points par Authentification différente) [Attention c’est coûteux en temps]
 - S’authentifier avec Facebook, Twitter, Google ou Github.
