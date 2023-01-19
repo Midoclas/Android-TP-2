@@ -13,7 +13,7 @@ import tanguy_paquet.insset.tp_2.osu.data.profile.model.ProfileRoom
         ProfileRoom::class,
         BestMapsRoom::class
     ],
-    version = 4,
+    version = 6,
     exportSchema = false
 )
 abstract class CustomRoomDatabase : RoomDatabase() {

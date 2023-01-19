@@ -4,6 +4,6 @@
     <string name="get_profile">Ouvrir le profile</string>
     <string name="about_me">À propos de moi</string>
     <string name="add">Ajouter</string>
-    <string name="delete">Tout supprimer</string>
+    <string name="delete">Supprimer</string>
     <string name="disconnect">Se déconnecter</string>
 </resources>

@@ -19,7 +19,9 @@ fun List<BestMapsRoom>.fromDomainToUi(): List<BestMapsUi> {
             date = it.date,
             rank = it.rank,
             pp = it.pp,
-            beatmapset_id = it.beatmapset_id
+            beatmapset_id = it.beatmapset_id,
+            title = it.title,
+            artist = it.artist
         )
     }.toList()
 

@@ -2,6 +2,7 @@ package tanguy_paquet.insset.tp_2.view.bestMaps.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -71,6 +72,7 @@ class BestMapsAdapter : ListAdapter<BestMapsUiObject, RecyclerView.ViewHolder>(
 class BestMapsViewHolder(
     private val binding: ActivityBestmapsRecyclerBinding
 ) : RecyclerView.ViewHolder(binding.root) {
+
     var formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
 
     fun bind(BestMapsUi: BestMapsUi) {
@@ -84,6 +86,7 @@ class BestMapsViewHolder(
         binding.count300.text = BestMapsUi.count300
         binding.countmiss.text = BestMapsUi.countmiss
         binding.pp.text = BestMapsUi.pp
+        binding.title.text = BestMapsUi.title
         /*if (BestMapsUi.perfect == "1") {
             Glide.with(itemView.context)
             .load("https://b.ppy.sh/thumb/"+BestMapsUi.beatmap_id+"l.jpg")

@@ -11,5 +11,5 @@ interface BestMapsRepository {
 
     fun deleteAllBestMaps()
 
-    suspend fun setBeatmapsetId(beatmpa_id: String)
+    suspend fun setMoreData(beatmap_id: String)
 }

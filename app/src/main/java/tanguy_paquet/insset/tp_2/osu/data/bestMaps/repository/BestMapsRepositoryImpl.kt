@@ -25,8 +25,10 @@ class BestMapsRepositoryImpl: BestMapsRepository {
         mBestMapsDao.deleteAll()
     }
 
-    override suspend fun setBeatmapsetId(beatmap_id: String) {
-        mBestMapsDao.updateBeatmapsetid(beatmap_id, RetrofitBuilder.BestMapsCall().getBeatmapsetid(beatmap_id)[0].toString())
+    override suspend fun setMoreData(beatmap_id: String) {
+        val data = RetrofitBuilder.BestMapsCall().setMoreData(beatmap_id)
+
+        mBestMapsDao.setMoreData(beatmap_id, data[0].beatmapset_id, data[0].title, data[0].artist)
     }
 }
 

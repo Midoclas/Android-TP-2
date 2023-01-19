@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "map_table")
+@Entity(tableName = "bestmap_table")
 data class BestMapsRoom (
     @ColumnInfo(name = "beatmap_id")
     val beatmap_id: String,
@@ -47,7 +47,13 @@ data class BestMapsRoom (
     val rank: String,
 
     @ColumnInfo(name = "pp")
-    val pp: String
+    val pp: String,
+
+    @ColumnInfo(name = "title")
+    val title: String = "0",
+
+    @ColumnInfo(name = "artist")
+    val artist: String = "0"
 ) {
     @PrimaryKey(autoGenerate = false)
     var id: Long = beatmap_id.toLong()
@@ -94,12 +100,24 @@ data class BestMapsRetrofit(
     val rank: String,
 
     @SerializedName("pp")
-    val pp: String
+    val pp: String,
+
+    @SerializedName("title")
+    val title: String = "0",
+
+    @SerializedName("artist")
+    val artist: String = "0"
 )
 
 data class BeatmapsetidRetrofit(
     @SerializedName("beatmapset_id")
     val beatmapset_id: String,
+
+    @SerializedName("title")
+    val title: String,
+
+    @SerializedName("artist")
+    val artist: String
 ) {
-    override fun toString(): String = beatmapset_id
+
 }

@@ -9,15 +9,15 @@ import tanguy_paquet.insset.tp_2.osu.data.bestMaps.model.BestMapsRoom
 
 @Dao
 interface BestMapsDao {
-    @Query("SELECT * FROM map_table ORDER BY pp DESC")
+    @Query("SELECT * FROM bestmap_table ORDER BY pp DESC")
     fun selectBestMaps(): LiveData<List<BestMapsRoom>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(androidVersion: List<BestMapsRoom>)
 
-    @Query("UPDATE map_table SET beatmapset_id = :beatmapset_id WHERE beatmap_id = :beatmap_id")
-    fun updateBeatmapsetid(beatmap_id: String, beatmapset_id: String)
+    @Query("UPDATE bestmap_table SET beatmapset_id = :beatmapset_id, title = :title, artist = :artist WHERE beatmap_id = :beatmap_id")
+    fun setMoreData(beatmap_id: String, beatmapset_id: String, title: String, artist: String)
 
-    @Query("DELETE FROM map_table")
+    @Query("DELETE FROM bestmap_table")
     fun deleteAll()
 }

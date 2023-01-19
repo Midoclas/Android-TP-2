@@ -18,7 +18,9 @@ import tanguy_paquet.insset.tp_2.view.profile.adapter.ProfileAdapter
 class OsuMainActivity: AppCompatActivity() {
     private lateinit var bestAdapter: BestMapsAdapter
     private lateinit var profileAdapter: ProfileAdapter
+
     private lateinit var binding: ActivityOsuApplicationBinding
+
     private lateinit var bestViewModel: BestViewModel
     private lateinit var profileViewModel: ProfileViewModel
 
