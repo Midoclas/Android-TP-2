@@ -2,6 +2,7 @@ package tanguy_paquet.insset.tp_2.view.profile.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 import tanguy_paquet.insset.tp_2.R
 import tanguy_paquet.insset.tp_2.databinding.ItemProfileRecyclerBinding
 import tanguy_paquet.insset.tp_2.osu.view.profile.model.ProfileUi
+
 
 private val diffItemUtils = object : DiffUtil.ItemCallback<ProfileUi>() {
 
@@ -54,6 +56,11 @@ class ProfileViewHolder(
         binding.scoreSH.text = ProfileUi.count_rank_sh
         binding.scoreA.text = ProfileUi.count_rank_a
         binding.rank.text = "Rank : "+ProfileUi.pp_rank
+        binding.localRank.text = "Local Rank : "+ProfileUi.pp_country_rank
+        binding.level.text = "Lvl : "+ProfileUi.level.toFloat().toInt()
+
+        (binding.levelBarContent.layoutParams as LinearLayout.LayoutParams).weight = 0.5f
+        binding.levelBarContent.requestLayout()
         Glide.with(itemView.context)
             .load("https://a.ppy.sh/"+ProfileUi.user_id)
             .placeholder(R.drawable.ic_launcher_background)

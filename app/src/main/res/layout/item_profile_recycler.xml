@@ -19,14 +19,46 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/pseudo"
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintLeft_toRightOf="@id/pseudo"
+        app:layout_constraintBottom_toTopOf="@id/user_id"
+        tools:text="Lvl : 78"/>
+
+    <LinearLayout
+        android:id="@+id/levelBarFill"
         android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:orientation="horizontal"
+        android:background="@drawable/level_bar_fill"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintLeft_toRightOf="@id/level"
+        app:layout_constraintBottom_toTopOf="@id/user_id"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/level" />
+
+    <LinearLayout
+        android:id="@+id/levelBarContent"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:orientation="horizontal"
+        android:background="@drawable/level_bar_content"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintLeft_toRightOf="@id/level"
+        app:layout_constraintBottom_toTopOf="@id/user_id"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/level" />
+
+    <TextView
+        android:id="@+id/pseudo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/user_id"
         app:layout_constraintLeft_toRightOf="@+id/avatar"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="@tools:sample/cities" />
@@ -44,14 +76,24 @@
 
     <TextView
         android:id="@+id/rank"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintLeft_toLeftOf="@+id/pseudo"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_id"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="rank : 46000" />
+
+    <TextView
+        android:id="@+id/localRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
+        app:layout_constraintLeft_toRightOf="@+id/rank"
+        app:layout_constraintTop_toBottomOf="@+id/user_id"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Local : 46000" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierScore"

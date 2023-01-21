@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TP2.">
         <activity
-            android:name=".firebase.view.FirebaseLoginActivity"
+            android:name=".osu.view.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,10 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".firebase.view.FirebaseRegisterActivity" />
-        <activity
-            android:name=".osu.view.activity.MainActivity"/>
         <activity
             android:name=".osu.view.activity.OsuMainActivity"
             android:parentActivityName=".osu.view.activity.MainActivity" />
