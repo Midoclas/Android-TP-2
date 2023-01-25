@@ -59,8 +59,9 @@ class ProfileViewHolder(
         binding.localRank.text = "Local Rank : "+ProfileUi.pp_country_rank
         binding.level.text = "Lvl : "+ProfileUi.level.toFloat().toInt()
 
-        (binding.levelBarContent.layoutParams as LinearLayout.LayoutParams).weight = 0.5f
-        binding.levelBarContent.requestLayout()
+        (binding.levelBarContentView.layoutParams as LinearLayout.LayoutParams).weight = ProfileUi.level.toFloat() - ProfileUi.level.toFloat().toInt()
+        (binding.levelBarFillView.layoutParams as LinearLayout.LayoutParams).weight = ProfileUi.level.toFloat().toInt() - ProfileUi.level.toFloat() + 1
+        binding.levelBarContentView.requestLayout()
         Glide.with(itemView.context)
             .load("https://a.ppy.sh/"+ProfileUi.user_id)
             .placeholder(R.drawable.ic_launcher_background)

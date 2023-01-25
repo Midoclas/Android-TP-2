@@ -90,7 +90,7 @@ class BestMapsViewHolder(
             .load("https://assets.ppy.sh/beatmaps/"+BestMapsUi.beatmapset_id+"/covers/cover@2x.jpg")
             .placeholder(R.drawable.ic_launcher_background)
             .into(binding.beatmapImage)
-        binding.pp.text = BestMapsUi.pp + " PP"
+        binding.pp.text = BestMapsUi.pp.toString() + " PP"
         binding.title.text = BestMapsUi.title
         binding.artist.text = BestMapsUi.artist
         Glide.with(itemView.context)

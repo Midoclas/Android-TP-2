@@ -54,31 +54,29 @@ class OsuMainActivity: AppCompatActivity() {
         binding.recyclerView.adapter = bestAdapter
         binding.recyclerViewProfile.adapter = profileAdapter
 
-        binding.addItemButton.setOnClickListener { init() }
-        binding.deleteAllItemButton.setOnClickListener { deleteBestMaps() }
-
     }
 
 
     override fun onStart() {
         super.onStart()
+        deleteBestMaps()
         intent.getStringExtra("username")
             ?.let { profileViewModel.mProfileLiveData(it).observe(this, profileListObserver) }
         bestViewModel.mBestLiveData.observe(this, bestMapsListObserver)
+        init()
     }
 
 
     override fun onStop() {
         super.onStop()
+        deleteBestMaps()
         intent.getStringExtra("username")
             ?.let { profileViewModel.mProfileLiveData(it).removeObserver(profileListObserver) }
         bestViewModel.mBestLiveData.removeObserver(bestMapsListObserver)
-        bestViewModel.deleteAllBest()
     }
 
 
     private fun init() {
-        super.onStop()
         intent.getStringExtra("username")?.let { profileViewModel.insertOsuProfile(it) }
         intent.getStringExtra("username")?.let { bestViewModel.insertBestMaps(it) }
 

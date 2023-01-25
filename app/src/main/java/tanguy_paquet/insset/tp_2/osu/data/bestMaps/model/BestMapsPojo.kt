@@ -47,7 +47,7 @@ data class BestMapsRoom (
     val rank: String,
 
     @ColumnInfo(name = "pp")
-    val pp: String,
+    val pp: Int,
 
     @ColumnInfo(name = "title")
     val title: String = "0",

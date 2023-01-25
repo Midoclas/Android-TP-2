@@ -16,7 +16,7 @@ data class BestMapsUi(
     val user_id: String,
     val date: String,
     val rank: String,
-    val pp: String,
+    val pp: Int,
     val title: String,
     val artist: String
 ) : BestMapsUiObject(label = beatmap_id)

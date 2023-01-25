@@ -18,7 +18,7 @@ fun ArrayList<BestMapsRetrofit>.toRoom(): List<BestMapsRoom> {
             user_id = it.user_id,
             date = it.date,
             rank = it.rank,
-            pp = it.pp
+            pp = it.pp.toFloat().toInt()
         )
     }
 }
